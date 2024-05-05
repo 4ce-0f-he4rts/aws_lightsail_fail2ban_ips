@@ -1,0 +1,7 @@
+aws_lightsail:
+  hosts:
+%{ for static_public_ip_addr in static_public_ip_addrs ~}    
+    ${static_public_ip_addr}:
+%{ endfor ~}
+  vars:
+    ansible_user: ${remote_user}

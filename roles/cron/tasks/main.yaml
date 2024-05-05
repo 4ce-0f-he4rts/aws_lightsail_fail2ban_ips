@@ -1,0 +1,20 @@
+---
+- name: Create Directory - /home/ubuntu/blacklist_ip_table
+  ansible.builtin.file:
+    path: /home/ubuntu/blacklist_ip_table
+    state: directory
+    mode: '0755'
+
+- name: Copy update_blacklist_ip_table.sh >> ~/blacklist_ip_table
+  ansible.builtin.copy:
+    src: ~/aws_lightsail_fail2ban_ips/include/scripts/update_blacklist_ip_table.sh
+    dest: /home/ubuntu/blacklist_ip_table/
+
+- name: Add a Cron Job (root)
+  ansible.builtin.cron:
+    name: Run Script every 1 min
+    user: root
+    backup: true
+    minute: "*/1"
+    job: "/bin/bash /home/ubuntu/blacklist_ip_table/update_blacklist_ip_table.sh"
+    state: present

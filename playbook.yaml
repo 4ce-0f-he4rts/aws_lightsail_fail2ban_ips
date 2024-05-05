@@ -1,0 +1,11 @@
+---
+- name: Playbook - Provision AWS Lightsail (Ubuntu Server)
+  hosts: aws_lightsail
+  remote_user: ubuntu
+  become: yes
+  gather_facts: false
+  roles:
+    - aws_lightsail
+    - fail2ban
+    - sshd
+    - cron

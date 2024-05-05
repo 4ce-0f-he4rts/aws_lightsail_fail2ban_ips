@@ -1,0 +1,9 @@
+---
+- name: Install Packages - Server Management Tools
+  ansible.builtin.apt:
+    name: 
+      - htop
+      - tree
+      - fzf
+    state: latest
+    update_cache: true

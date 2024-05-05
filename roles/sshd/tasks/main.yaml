@@ -1,0 +1,11 @@
+---
+- name: Lineinfile - PasswordAuthentication no >> PasswordAuthentication yes
+  ansible.builtin.lineinfile:
+    state: present
+    path: /etc/ssh/sshd_config
+    regexp: "^PasswordAuthentication no"
+    line: "PasswordAuthentication yes"
+  notify: 
+    - Systemd - Force Systemd to Re-Execute itself & Reread Configs
+    - Systemd - Restart SSHD Service
+

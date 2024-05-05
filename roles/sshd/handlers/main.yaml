@@ -1,0 +1,12 @@
+---
+- name: Systemd - Force Systemd to Re-Execute itself & Reread Configs
+  ansible.builtin.systemd_service:
+    name: sshd
+    state: started
+    daemon_reexec: true
+    daemon_reload: true
+    
+- name: Systemd - Restart SSHD Service
+  ansible.builtin.systemd_service:
+    name: sshd
+    state: restarted

@@ -1,0 +1,5 @@
+#! /bin/bash 
+echo 'chmod 600 /home/<local_username>/.ssh/aws_lightsail_fail2ban_ips/*'
+chmod 600 ${var_ssh_directory_path}/*
+ansible-playbook -i inventory.yaml --private-key ${var_private_key_filename} playbook.yaml
+    
