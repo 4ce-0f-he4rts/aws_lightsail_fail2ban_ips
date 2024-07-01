@@ -2,7 +2,7 @@
 ## **Localhost (Terraform & Ansible Orchestrator)**
 1. **Clone the Repository**
 ```
-git clone git@github.com:4ce-0f-he4rts/aws_lightsail_fail2ban_ips.git
+git clone git@github.com:shad0w-wiz4rd/aws_lightsail_fail2ban_ips.git
 ```
 2. **Modify Entries in your "1-variables.tf"**
 ```
